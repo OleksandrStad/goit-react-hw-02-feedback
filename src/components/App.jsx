@@ -9,7 +9,8 @@ export class App extends Component {
   state = {
     good: 0,
     neutral: 0,
-    bad: 0
+    bad: 0,
+    // positive feedback: 0,
   };
 
   Increment = options => {
@@ -21,20 +22,18 @@ export class App extends Component {
     });
   };
 
-  // Increment = ({ good, neutral }) => {
-  //   this.setState(prevState => {
-  //     return {
-  //       good: prevState.good + 1,
-  //       // neutral: prevState.neutral + 1,
-  //     }
-  //   });
+  countTotalFeedback() {
+    return this.state.good + this.state.neutral + this.state.bad
+  };
 
+  countPositiveFeedbackPercentage() {
+    return this.state.good / this.countTotalFeedback() * 100
+  }
 
 
 
   render() {
     // const { good, neutral, bad } = this.state;
-
 
     return (
       <div>
@@ -43,9 +42,13 @@ export class App extends Component {
           onLeaveFeedback={this.Increment} />
 
         <Statistics
+
           good={this.state.good}
           neutral={this.state.neutral}
-          bad={this.state.bad} />
+          bad={this.state.bad}
+          total={this.countTotalFeedback()}
+          Positive={this.countPositiveFeedbackPercentage()}
+        />
 
 
       </div>
