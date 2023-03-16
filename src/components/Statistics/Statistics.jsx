@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 export const Statistics = ({ good, neutral, bad, total, positive }) => {
-
     return (
         < div >
             <p>Good: <span>{good}</span></p>
@@ -13,8 +12,6 @@ export const Statistics = ({ good, neutral, bad, total, positive }) => {
         </div >
     )
 };
-
-
 
 Statistics.propTypes = {
     good: PropTypes.number.isRequired,

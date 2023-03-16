@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import { FeedbackOptions } from './FeedbackOptions/Feedback';
 import { Statistics } from './Statistics/Statistics';
 import { Section } from './Section/Section';
+import { Container } from './Section/Section.styled';
 import { Notification } from './Notification/Notification';
-
-
 
 export class App extends Component {
 
@@ -30,12 +29,10 @@ export class App extends Component {
     return Math.round(this.state.good / this.countTotalFeedback() * 100)
   }
 
-
-
   render() {
 
     return (
-      <div>
+      <Container>
         <Section title="Please leave feedback">
           <FeedbackOptions
             options={['good', 'neutral', 'bad']}
@@ -56,11 +53,7 @@ export class App extends Component {
 
         </Section>
 
-      </div>
-
+      </Container>
     )
-
   }
-
-
 };

@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
-
+import { Buttons } from './Feedback.styled'
 
 export const FeedbackOptions = ({ options, onLeaveFeedback }) => {
 
@@ -9,9 +8,9 @@ export const FeedbackOptions = ({ options, onLeaveFeedback }) => {
         <div>
             {options.map(el => {
                 return (
-                    <button key={el} onClick={() => onLeaveFeedback(el)}>
+                    <Buttons key={el} onClick={() => onLeaveFeedback(el)}>
                         {el}
-                    </button>
+                    </Buttons>
                 );
             })}
 
@@ -19,7 +18,6 @@ export const FeedbackOptions = ({ options, onLeaveFeedback }) => {
     )
 
 };
-
 
 FeedbackOptions.propTypes = {
     options: PropTypes.arrayOf(PropTypes.string).isRequired,
